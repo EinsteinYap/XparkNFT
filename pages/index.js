@@ -7,7 +7,7 @@ import { nftaddress, nftmarketaddress } from '../config'
 
 import NFT from '../artifacts/contracts/NFT.sol/NFT.json'
 import XparkMarket from '../artifacts/contracts/XparkMarket.sol/XparkMarket.json'
-import Image from 'next/image'
+
 export default function Home() {
   const [nfts, setNFts] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
@@ -53,7 +53,7 @@ export default function Home() {
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)
     const signer = provider.getSigner()
-    const contract = new ethers.Contract(nftmarketaddress, XparkMarket.abi.abi, signer)
+    const contract = new ethers.Contract(nftmarketaddress, XparkMarket.abi, signer)
 
     const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
     const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
@@ -73,7 +73,7 @@ export default function Home() {
             {
               nfts.map((nft, i)=>(
                 <div key={i} className='border shadow rounded-x1 overflow-hidden'>
-                  <Image src={nft.image} alt="NFT"/>
+                  <img src={nft.image} />
                   <div className='p-4'>
                     <p style={{height:'64px'}} className='text-3x1 font-semibold'>{
                       nft.name}</p>
