@@ -64,9 +64,9 @@ export default function MyAssets() {
             {
               nfts.map((nft, i)=>(
                 <div key={i} className='border shadow rounded-x1 overflow-hidden'>
-                  <img src={nft.image} />
+                <img src={nft.image} style={{height:'250px'}} />
                   <div className='p-4'>
-                    <p style={{height:'64px'}} className='text-3x1 font-semibold'>{
+                    <p style={{height:'64px',color:'whitesmoke'}} className='text-3x1 font-semibold'>{
                       nft.name}</p>
                       <div style={{height:'72px', overflow:'hidden'}}>
                         <p className='text-gray-400'>{nft.description}</p>
